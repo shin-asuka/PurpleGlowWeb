@@ -1,30 +1,50 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.example</groupId>
+    <groupId>com.purpleglow</groupId>
     <artifactId>PurpleGlowWeb</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>PurpleGlowWeb Maven Webapp</name>
     <url>http://maven.apache.org</url>
+    <properties>
+        <!-- 第三方依赖版本（必须显式指定！） -->
+        <mybatis-plus.version>3.5.3.1</mybatis-plus.version> <!-- MyBatis Plus -->
+        <mysql.version>8.0.33</mysql.version> <!-- MySQL 驱动 -->
+        <lombok.version>1.18.30</lombok.version> <!-- Lombok（兼容 JDK 17） -->
+        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
+    </properties>
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- Spring Boot Web Starter -->
+        <!-- Spring Boot Starter Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <!-- MyBatis Plus Starter -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus.version}</version>
+        </dependency>
+
+        <!-- MySQL Driver -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.5</version>
-        <relativePath/> <!-- 从仓库中查找父依赖 -->
+        <version>3.1.0</version>
     </parent>
     <build>
         <finalName>PurpleGlowWeb</finalName>

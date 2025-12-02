@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>季度数据表格</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 20px;
+        }
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h2>近25年季度数据 (100个季度)</h2>
+
+<!-- 10x10表格 -->
+<table>
+    <tbody>
+    <!-- 行循环 (10行) -->
+    <tr th:each="row : ${quarterRows}">
+        <!-- 列循环 (10列) -->
+        <td th:each="quarterId : ${row}">
+            <div th:text="${quarterId}"></div>
+            <div th:text="${dataMap.get(quarterId)} ?: '无数据'"></div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
